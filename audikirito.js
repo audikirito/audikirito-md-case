@@ -91,6 +91,7 @@ let nttoxic = db.data.others.nttoxic = []
 let xeonysticker = JSON.parse(fs.readFileSync('./Media/theme/Media-Store-Karne-Ke-Liye/sticker.json'))
 let xeonyaudio = JSON.parse(fs.readFileSync('./Media/theme/Media-Store-Karne-Ke-Liye/audio.json'))
 let xeonyimage = JSON.parse(fs.readFileSync('./Media/theme/Media-Store-Karne-Ke-Liye/image.json'))
+let xeonyvideo = JSON.parse(fs.readFileSync('./Media/theme/Media-Store-Karne-Ke-Liye/video.json'))
 let bad = JSON.parse(fs.readFileSync('./src/toxic/bad.json'))
 const xeonannou = JSON.parse(fs.readFileSync('./database/anoucement.json'))
 xeonbugpic = fs.readFileSync('./XBug/xpic.jpeg')
