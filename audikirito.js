@@ -5808,7 +5808,7 @@ case 'alive': case 'panel': case 'list': case 'menu': case 'help': case '?': {
       let ments = [ownernya, me, ini_mark]        
             let buttons = [{ buttonId: 'allmenu', buttonText: { displayText: '𝘚𝘦𝘮𝘶𝘢 𝘗𝘦𝘳𝘪𝘯𝘵𝘢𝘩' }, type: 1 },{ buttonId: 'command', buttonText: { displayText: '𝘓𝘪𝘴𝘵 𝘔𝘦𝘯𝘶' }, type: 1 },{ buttonId: 'sc', buttonText: { displayText: '𝘚𝘰𝘶𝘳𝘤𝘦' }, type: 1 }]
             let buttonMessage = {
-  document: fs.readFileSync('./Media/theme/cheems.xlsx'),
+  document: fs.readFileSync('./Media/theme/audikirito.xlsx'),
   fileName : `${groupMetadata.subject}`,
   mimetype: `${docs}`,
   fileLength: '99999999999999',
