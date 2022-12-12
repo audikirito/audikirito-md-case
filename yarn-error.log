@@ -14,11 +14,11 @@ Platform:
   android arm64
 
 Trace: 
-  Error: EPERM: operation not permitted, symlink '../../../../pino/bin.js' -> '/storage/emulated/0/jarot/node_modules/@adiwajshing/baileys/node_modules/.bin/pino'
+  Error: EPERM: operation not permitted, symlink '../../../../pino/bin.js' -> '/storage/emulated/0/audikirito/node_modules/@adiwajshing/baileys/node_modules/.bin/pino'
 
 npm manifest: 
   {
-    "name": "Oscar-MD",
+    "name": "audikirito-MD",
     "version": "5.0.0",
     "description": "Automated whatsapp md bot created using nodejs",
     "main": "index.js",
@@ -37,7 +37,7 @@ npm manifest:
       "multi-device",
       "xeon-bot-inc"
     ],
-    "author": "Jarot",
+    "author": "audikirito",
     "license": "MIT",
     "dependencies": {
       "@adiwajshing/baileys": "^4.4.0",
@@ -95,12 +95,12 @@ npm manifest:
     "devDependencies": {},
     "repository": {
       "type": "git",
-      "url": "git+https://github.com/JarotOffc/oscar-md-v6.git"
+      "url": "git+https://github.com/audikirito/audikirito-md-case.git"
     },
     "bugs": {
-      "url": "https://github.com/JarotOffc/oscar-md-v6/issues"
+      "url": "https://github.com/audikirito/audikirito-md-case/issues"
     },
-    "homepage": "https://github.com/JarotOffc/oscar-md-v6#readme"
+    "homepage": "github.com/audikirito/audikirito-md-case#readme"
   }
 
 yarn manifest: 
