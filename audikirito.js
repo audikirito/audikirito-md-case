@@ -3600,6 +3600,64 @@ linkyke = await getBuffer(anu.result.dlink)
 XeonBotInc.sendMessage(m.chat, {document: linkyke, mimetype: 'application/zip', fileName: `${anu.result.filename}`}, {quoted:m}).catch ((err) => m.reply(mess.error))     
 }
 break
+case prefix+'anitoki':
+                if (!isRegistered) return await bocchi.reply(from, ind.notRegistered(), id)
+                if (limit.isLimit(sender.id, _limit, limitCount, isPremium, isOwner)) return await bocchi.reply(from, ind.limit(), id)
+                limit.addLimit(sender.id, _limit, isPremium, isOwner)
+                await bocchi.reply(from, ind.wait(), id)
+                weeaboo.anitoki()
+                    .then(async ({ result }) => {
+                        let anitoki = '*── 「 ANITOKI LATEST 」 ──*'
+                        for (let i = 0; i < result.length; i++) {
+                            anitoki += `\n\n➸ *Title*: ${result[i].title}\n➸ *URL*: ${result[i].link}\n\n=_=_=_=_=_=_=_=_=_=_=_=_=`
+                        }
+                        await bocchi.reply(from, anitoki, id)
+                    })
+                    .catch(async (err) => {
+                        console.error(err)
+                        await bocchi.reply(from, 'Error!', id)
+                    })
+            break
+            case prefix+'neonime':
+                if (!isRegistered) return await bocchi.reply(from, ind.notRegistered(), id)
+                if (limit.isLimit(sender.id, _limit, limitCount, isPremium, isOwner)) return await bocchi.reply(from, ind.limit(), id)
+                limit.addLimit(sender.id, _limit, isPremium, isOwner)
+                await bocchi.reply(from, ind.wait(), id)
+                weeaboo.neonime()
+                    .then(async ({ status, result }) => {
+                        if (status !== 200) return await bocchi.reply(from, 'Not found.', id)
+                        let neoInfo = '*── 「 NEONIME LATEST 」 ──*'
+                        for (let i = 0; i < result.length; i++) {
+                            const { date, title, link, desc } = result[i]
+                            neoInfo += `\n\n➸ *Title*: ${title}\n➸ *Date*: ${date}\n➸ *Synopsis*: ${desc}\n➸ *Link*: ${link}\n\n=_=_=_=_=_=_=_=_=_=_=_=_=`
+                        }
+                        await bocchi.reply(from, neoInfo, id)
+                        console.log('Success sending Neonime latest update!')
+                    })
+                    .catch(async (err) => {
+                        console.error(err)
+                        await bocchi.reply(from, 'Error!', id)
+                    })
+            break
+            case prefix+'anoboy':
+                if (!isRegistered) return await bocchi.reply(from, ind.notRegistered(), id)
+                if (limit.isLimit(sender.id, _limit, limitCount, isPremium, isOwner)) return await bocchi.reply(from, ind.limit(), id)
+                limit.addLimit(sender.id, _limit, isPremium, isOwner)
+                await bocchi.reply(from, ind.wait(), id)
+                weeaboo.anoboy()
+                    .then(async ({ result }) => {
+                        let anoboyInfo = '*── 「 ANOBOY ON-GOING 」 ──*'
+                        for (let i = 0; i < result.length; i++) {
+                            anoboyInfo += `\n\n➸ *Title*: ${result[i].title}\n➸ *URL*: ${result[i].url}\n\n=_=_=_=_=_=_=_=_=_=_=_=_=`
+                        }
+                        await bocchi.reply(from, anoboyInfo, id)
+                        console.log('Success sending on-going anime!')
+                    })
+                    .catch(async (err) => {
+                        console.error(err)
+                        await bocchi.reply(from, 'Error!', id)
+                    })
+            break
 case 'happymod': {
 if (!args.join(" ")) return m.reply(`Example : ${prefix + command} mobile legend`)
 xeontod.happymod(args.join(" ")).then(async(res) => {
@@ -5845,96 +5903,96 @@ case 'alive': case 'panel': case 'list': case 'menu': case 'help': case '?': {
 								]
 							},
 							{
-								"title": "𝙻𝚒𝚜𝚝 audikirito-𝙼𝚍️",
+"title": "𝙻𝚒𝚜𝚝 audikirito-𝙼𝚍️",
 								"rows": [
 									{
 										"title": "ALL MENU",
-										"description": "𝚂𝙿𝙰𝚁𝙺𝚈 𝙱𝙾𝚃 𝙼𝙳+ 𝙱𝚢 𝙰𝚜𝚠𝚒𝚗 𝚂𝚙𝚊𝚛𝚔𝚢",
+										"description": "audikirito",
 										"rowId": `${prefix}allmenu`
 									},
 									{
 										"title": "OWNER MENU",
-										"description": "𝚂𝙿𝙰𝚁𝙺𝚈 𝙱𝙾𝚃 𝙼𝙳+ 𝙱𝚢 𝙰𝚜𝚠𝚒𝚗 𝚂𝚙𝚊𝚛𝚔𝚢",
+										"description": "audikirito",
 										"rowId": `${prefix}ownermenu`
 										},
 									{
 										"title": "GROUP MENU",
-										"description": "𝚂𝙿𝙰𝚁𝙺𝚈 𝙱𝙾𝚃 𝙼𝙳+ 𝙱𝚢 𝙰𝚜𝚠𝚒𝚗 𝚂𝚙𝚊𝚛𝚔𝚢",
+										"description": "audikirito",
 										"rowId": `${prefix}groupmenu`
 										},
 										{
 										"title": "𝘔𝘦𝘯𝘶 𝘔𝘢𝘬𝘦𝘳",
-										"description": "𝚂𝙿𝙰𝚁𝙺𝚈 𝙱𝙾𝚃 𝙼𝙳+ 𝙱𝚢 𝙰𝚜𝚠𝚒𝚗 𝚂𝚙𝚊𝚛𝚔𝚢",
+										"description": "audikirito",
 										"rowId": `${prefix}makermenu`
 									},
 									{
 										"title": "𝘔𝘦𝘯𝘶 𝘚𝘰𝘶𝘯𝘥",
-										"description": "𝚂𝙿𝙰𝚁𝙺𝚈 𝙱𝙾𝚃 𝙼𝙳+ 𝙱𝚢 𝙰𝚜𝚠𝚒𝚗 𝚂𝚙𝚊𝚛𝚔𝚢",
+										"description": "audikirito",
 										"rowId": `${prefix}soundmenu`
 									},
 									{
 										"title": "𝘔𝘦𝘯𝘶 𝘋𝘰𝘯𝘸𝘭𝘰𝘢𝘥𝘦𝘳",
-										"description": "𝚂𝙿𝙰𝚁𝙺𝚈 𝙱𝙾𝚃 𝙼𝙳+ 𝙱𝚢 𝙰𝚜𝚠𝚒𝚗 𝚂𝚙𝚊𝚛𝚔𝚢",
+										"description": "audikirito",
 										"rowId": `${prefix}downloadmenu`
 									},
 									{
 										"title": "𝘔𝘦𝘯𝘶 𝘚𝘵𝘪𝘤𝘬𝘦𝘳",
-										"description": "𝚂𝙿𝙰𝚁𝙺𝚈 𝙱𝙾𝚃 𝙼𝙳+ 𝙱𝚢 𝙰𝚜𝚠𝚒𝚗 𝚂𝚙𝚊𝚛𝚔𝚢",
+										"description": "audikirito",
 										"rowId": `${prefix}stickermenu`
 									},
 									{
 										"title": "𝘔𝘦𝘯𝘶 𝘚𝘦𝘢𝘳𝘤𝘩",
-										"description": "𝚂𝙿𝙰𝚁𝙺𝚈 𝙱𝙾𝚃 𝙼𝙳+ 𝙱𝚢 𝙰𝚜𝚠𝚒𝚗 𝚂𝚙𝚊𝚛𝚔𝚢",
+										"description": "audikirito",
 										"rowId": `${prefix}searchmenu`
 									},
 									{
 										"title": "𝘔𝘦𝘯𝘶 𝘙𝘢𝘯𝘥𝘰𝘮 𝘐𝘮𝘢𝘨𝘦",
-										"description": "𝚂𝙿𝙰𝚁𝙺𝚈 𝙱𝙾𝚃 𝙼𝙳+ 𝙱𝚢 𝙰𝚜𝚠𝚒𝚗 𝚂𝚙𝚊𝚛𝚔𝚢",
+										"description": "audikirito",
 										"rowId": `${prefix}randomimagemenu`
 									},
 									{
 										"title": "𝘔𝘦𝘯𝘶 𝘐𝘮𝘢𝘨𝘦 𝘌𝘧𝘧𝘦𝘤𝘵️",
-										"description": "𝚂𝙿𝙰𝚁𝙺𝚈 𝙱𝙾𝚃 𝙼𝙳+ 𝙱𝚢 𝙰𝚜𝚠𝚒𝚗 𝚂𝚙𝚊𝚛𝚔𝚢",
+										"description": "audikirito",
 										"rowId": `${prefix}imageeffectmenu`
 									},
 										{
 											"title": "𝘔𝘦𝘯𝘶 𝘈𝘯𝘪𝘮𝘦",
-										"description": "𝚂𝙿𝙰𝚁𝙺𝚈 𝙱𝙾𝚃 𝙼𝙳+ 𝙱𝚢 𝙰𝚜𝚠𝚒𝚗 𝚂𝚙𝚊𝚛𝚔𝚢",
+										"description": "audikirito",
 										"rowId": `${prefix}animemenu`
 										},
 										{
 											"title": "𝘔𝘦𝘯𝘶 𝘌𝘮𝘰𝘵𝘦",
-										"description": "𝚂𝙿𝙰𝚁𝙺𝚈 𝙱𝙾𝚃 𝙼𝙳+ 𝙱𝚢 𝙰𝚜𝚠𝚒𝚗 𝚂𝚙𝚊𝚛𝚔𝚢",
+										"description": "audikirito",
 										"rowId": `${prefix}emotemenu`
 										},
 										{
 										"title": "𝘔𝘦𝘯𝘶 𝘚𝘵𝘪𝘤𝘬𝘦𝘳 𝘈𝘯𝘪𝘮𝘦",
-										"description": "𝚂𝙿𝙰𝚁𝙺𝚈 𝙱𝙾𝚃 𝙼𝙳+ 𝙱𝚢 𝙰𝚜𝚠𝚒𝚗 𝚂𝚙𝚊𝚛𝚔𝚢",
+										"description": "audikirito",
 										"rowId": `${prefix}animestickermenu`
 									     },
 									{
 										"title": "𝘔𝘦𝘯𝘶 𝘕𝘴𝘧𝘸",
-										"description": "𝚂𝙿𝙰𝚁𝙺𝚈 𝙱𝙾𝚃 𝙼𝙳+ 𝙱𝚢 𝙰𝚜𝚠𝚒𝚗 𝚂𝚙𝚊𝚛𝚔𝚢",
+										"description": "audikirito",
 										"rowId": `${prefix}nsfwmenu`
 									     },
 										{
 											"title": "FUN MENU",
-										"description": "𝚂𝙿𝙰𝚁𝙺𝚈 𝙱𝙾𝚃 𝙼𝙳+ 𝙱𝚢 𝙰𝚜𝚠𝚒𝚗 𝚂𝚙𝚊𝚛𝚔𝚢",
+										"description": "audikirito",
 										"rowId": `${prefix}funmenu`
 										},
 										{
 										"title": "GAME MENU",
-										"description": "𝚂𝙿𝙰𝚁𝙺𝚈 𝙱𝙾𝚃 𝙼𝙳+ 𝙱𝚢 𝙰𝚜𝚠𝚒𝚗 𝚂𝚙𝚊𝚛𝚔𝚢",
+										"description": "audikirito",
 										"rowId": `${prefix}gamemenu`
 									},
 										{
 											"title": "CONVERTER MENU",
-										"description": "𝚂𝙿𝙰𝚁𝙺𝚈 𝙱𝙾𝚃 𝙼𝙳+ 𝙱𝚢 𝙰𝚜𝚠𝚒𝚗 𝚂𝚙𝚊𝚛𝚔𝚢",
+										"description": "audikirito",
 										"rowId": `${prefix}convertmenu`
 										},
 										{
 											"title": "DATABASE MENU",
-										"description": "𝚂𝙿𝙰𝚁𝙺𝚈 𝙱𝙾𝚃 𝙼𝙳+ 𝙱𝚢 𝙰𝚜𝚠𝚒𝚗 𝚂𝚙𝚊𝚛𝚔𝚢",
+										"description": "audikirito",
 										"rowId": `${prefix}databasemenu`
 										}
 								]
@@ -5944,7 +6002,7 @@ case 'alive': case 'panel': case 'list': case 'menu': case 'help': case '?': {
 								"rows": [
 									{
 										"title": "𝘔𝘦𝘯𝘶 𝘈𝘯𝘰𝘯𝘺𝘮𝘰𝘶𝘴 𝘊𝘩𝘢𝘵",
-										"description": "𝚂𝙿𝙰𝚁𝙺𝚈 𝙱𝙾𝚃 𝙼𝙳+ 𝙱𝚢 𝙰𝚜𝚠𝚒𝚗 𝚂𝚙𝚊𝚛𝚔𝚢",
+										"description": "audikirito",
 										"rowId": `${prefix}anonymousmenu`
 									}
 								]
@@ -5954,12 +6012,12 @@ case 'alive': case 'panel': case 'list': case 'menu': case 'help': case '?': {
 								"rows": [
 									{
 										"title": "Thanks To ❤️",
-										"description": "SUBSCRIBE MY CHANNEL VRO",
+										"description": "SUBSCRIBE MY CHANNEL audi surya wijaya",
 										"rowId": `${prefix}tqto`
 									}
 								]
 							}
-						]
+						]	
 let con = `┏─────────────────⬣
 ┆ Hai, ${pushname} 👋
 ┗┬──────────────┈ ⳹
