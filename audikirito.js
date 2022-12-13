@@ -29,7 +29,6 @@ const emoji = new EmojiAPI()
 const { TelegraPh } = require('./lib/telegraph')
 const { imgSuper } = require('./lib/ephoto')
 const { remove, unscreen } = require('./lib/removebg')
-const { weeaboo } = require('./lib/weeaboo')
 const QrCode = require('qrcode-reader')
 const qrcode = require('qrcode')
 const qrcodereader = require('qrcode-reader') 
@@ -3601,64 +3600,6 @@ linkyke = await getBuffer(anu.result.dlink)
 XeonBotInc.sendMessage(m.chat, {document: linkyke, mimetype: 'application/zip', fileName: `${anu.result.filename}`}, {quoted:m}).catch ((err) => m.reply(mess.error))     
 }
 break
-case prefix+'anitoki':
-                if (!isRegistered) return await bocchi.reply(from, ind.notRegistered(), id)
-                if (limit.isLimit(sender.id, _limit, limitCount, isPremium, isOwner)) return await bocchi.reply(from, ind.limit(), id)
-                limit.addLimit(sender.id, _limit, isPremium, isOwner)
-                await bocchi.reply(from, ind.wait(), id)
-                weeaboo.anitoki()
-                    .then(async ({ result }) => {
-                        let anitoki = '*── 「 ANITOKI LATEST 」 ──*'
-                        for (let i = 0; i < result.length; i++) {
-                            anitoki += `\n\n➸ *Title*: ${result[i].title}\n➸ *URL*: ${result[i].link}\n\n=_=_=_=_=_=_=_=_=_=_=_=_=`
-                        }
-                        await bocchi.reply(from, anitoki, id)
-                    })
-                    .catch(async (err) => {
-                        console.error(err)
-                        await bocchi.reply(from, 'Error!', id)
-                    })
-            break
-            case prefix+'neonime':
-                if (!isRegistered) return await bocchi.reply(from, ind.notRegistered(), id)
-                if (limit.isLimit(sender.id, _limit, limitCount, isPremium, isOwner)) return await bocchi.reply(from, ind.limit(), id)
-                limit.addLimit(sender.id, _limit, isPremium, isOwner)
-                await bocchi.reply(from, ind.wait(), id)
-                weeaboo.neonime()
-                    .then(async ({ status, result }) => {
-                        if (status !== 200) return await bocchi.reply(from, 'Not found.', id)
-                        let neoInfo = '*── 「 NEONIME LATEST 」 ──*'
-                        for (let i = 0; i < result.length; i++) {
-                            const { date, title, link, desc } = result[i]
-                            neoInfo += `\n\n➸ *Title*: ${title}\n➸ *Date*: ${date}\n➸ *Synopsis*: ${desc}\n➸ *Link*: ${link}\n\n=_=_=_=_=_=_=_=_=_=_=_=_=`
-                        }
-                        await bocchi.reply(from, neoInfo, id)
-                        console.log('Success sending Neonime latest update!')
-                    })
-                    .catch(async (err) => {
-                        console.error(err)
-                        await bocchi.reply(from, 'Error!', id)
-                    })
-            break
-            case prefix+'anoboy':
-                if (!isRegistered) return await bocchi.reply(from, ind.notRegistered(), id)
-                if (limit.isLimit(sender.id, _limit, limitCount, isPremium, isOwner)) return await bocchi.reply(from, ind.limit(), id)
-                limit.addLimit(sender.id, _limit, isPremium, isOwner)
-                await bocchi.reply(from, ind.wait(), id)
-                weeaboo.anoboy()
-                    .then(async ({ result }) => {
-                        let anoboyInfo = '*── 「 ANOBOY ON-GOING 」 ──*'
-                        for (let i = 0; i < result.length; i++) {
-                            anoboyInfo += `\n\n➸ *Title*: ${result[i].title}\n➸ *URL*: ${result[i].url}\n\n=_=_=_=_=_=_=_=_=_=_=_=_=`
-                        }
-                        await bocchi.reply(from, anoboyInfo, id)
-                        console.log('Success sending on-going anime!')
-                    })
-                    .catch(async (err) => {
-                        console.error(err)
-                        await bocchi.reply(from, 'Error!', id)
-                    })
-            break
 case 'happymod': {
 if (!args.join(" ")) return m.reply(`Example : ${prefix + command} mobile legend`)
 xeontod.happymod(args.join(" ")).then(async(res) => {
